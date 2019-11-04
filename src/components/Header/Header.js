@@ -2,23 +2,24 @@ import React from "react";
 import "./Header.scss";
 import logo from "./sneaks.png";
 import { NavLink } from "react-router-dom";
-
+import {FaBars} from 'react-icons/fa'
+ 
 class Header extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     toggle: false
-  //   };
-  //   this.toggler = this.toggler.bind(this);
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      toggle: false
+    };
+    this.toggler = this.toggler.bind(this);
+  }
 
-  // toggler() {
-  //   this.setState(prevState => {
-  //     return {
-  //       toggle: !prevState.toggle
-  //     };
-  //   });
-  // }
+  toggler() {
+    this.setState(prevState => {
+      return {
+        toggle: !prevState.toggle
+      };
+    });
+  }
 
   render() {
     return (
@@ -27,10 +28,10 @@ class Header extends React.Component {
           <NavLink to="/">
             <img className="logo" src={logo} alt="logo"></img>
           </NavLink>
-          {/* <button className="menu"> */}
-          {/* <FaBars className="menu-icon" /> */}
-          {/* </button> */}
-          <nav>
+          <button onClick={this.toggler}  className="menu">
+          <FaBars className="menu-icon" />
+          </button>
+          <nav className={this.state.toggle ? "show" : ""}>
             <NavLink activeClassName="active" to="/store">
               STORE
             </NavLink>
