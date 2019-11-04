@@ -1,9 +1,9 @@
 import React from "react";
-import "./Header.scss";
+import "./Header2.scss";
 import logo from "./sneaks.png";
 import { NavLink } from "react-router-dom";
 
-class Header extends React.Component {
+class Header2 extends React.Component {
   // constructor(props) {
   //   super(props);
   //   this.state = {
@@ -22,10 +22,10 @@ class Header extends React.Component {
 
   render() {
     return (
-      <div className="header">
-        <div className="head">
+      <div className="header2">
+        <div className="head2">
           <NavLink to="/">
-            <img className="logo" src={logo} alt="logo"></img>
+            <img className="logo2" src={logo} alt="logo"></img>
           </NavLink>
           {/* <button className="menu"> */}
           {/* <FaBars className="menu-icon" /> */}
@@ -50,4 +50,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+export default Header2;

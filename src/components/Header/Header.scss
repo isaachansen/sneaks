@@ -1,16 +1,22 @@
+.header {
+  width: 100%;
+  height: 100vh;
+}
+
 .head {
     width: 100%;
     height: 100px;
     background-color: transparent;
-    position: absolute;
+    // position: absolute;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    z-index: 1;
 }
 
 .logo {
     width: 200px;
-    margin-left: 300px;
+
   }
 
 .head nav > ul {
@@ -19,7 +25,7 @@
     align-items: center;
     min-width: 400px;
     list-style: none;
-    margin-right: 300px;
+
   }
   
   .head a {
@@ -37,5 +43,5 @@
   }
 
   .head a:hover {
-    color: lightgray;
+    color: #9BF3FF;
   }
