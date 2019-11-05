@@ -1,17 +1,23 @@
-CREATE TABLE user (
+DROP TABLE IF EXISTS cart; 
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS inventory;
+
+
+CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
     email TEXT UNIQUE NOT NULL,
+    username TEXT UNIQUE,
     password TEXT NOT NULL
 );
 
 
-INSERT INTO user (email, password)
+INSERT INTO users (email, username, password)
 VALUES
-("test@test.com", "loser");
+('test@test.com', 'loser', 'loser');
 
 CREATE TABLE inventory (
     shoe_id SERIAL PRIMARY KEY,
-    shoe_brand VARCHAR(64) NOT NULL
+    shoe_brand VARCHAR(64) NOT NULL,
     shoe_name VARCHAR(64) NOT NULL,
     price INTEGER NOT NULL,
     image TEXT NOT NULL,
@@ -51,9 +57,13 @@ VALUES
 ('Gucci', 'Ace', 565, 'https://stockx.imgix.net/Gucci-Ace-Bee.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1571162010'),
 ('Gucci', 'Pool Slides', 180, 'https://stockx.imgix.net/Gucci-Pursuit-Pool-Slides-White.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1570216457'),
 ('Balenciaga', 'Speed Trainer', 600, 'https://stockx.imgix.net/Balenciaga-Speed-Trainer-Black-White-2018-Product.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1546679352'),
-('Balenciaga', 'Triple S', 599, 'https://stockx.imgix.net/Balenciaga-Triple-S-Clear-Sole-Black-Product.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1554225788'),
+('Balenciaga', 'Triple S', 599, 'https://stockx.imgix.net/Balenciaga-Triple-S-Clear-Sole-Black-Product.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1554225788');
 
-
+CREATE TABLE cart (
+    cart_id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(user_id),
+    shoe_id INTEGER REFERENCES inventory(shoe_id)
+);
 
 
 
