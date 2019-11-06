@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import Landing from "./components/Landing/Landing";
 import Store from "./components/Store/Store";
 import Cart from "./components/Cart/Cart";
-import Contact from './components/Contact/Contact';
-import Login from './components/Login/Login';
+import Contact from "./components/Contact/Contact";
+import Login from "./components/Login/Login";
+import Register from "./components/Register/Register";
 
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
@@ -18,6 +19,7 @@ class App extends Component {
           <Route path="/cart" component={Cart} />
           <Route path="/contact" component={Contact} />
           <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
         </Switch>
       </div>
     );

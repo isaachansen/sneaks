@@ -41,7 +41,7 @@ export default class Store extends Component {
         })
         console.log(this.state.inventory)
         return(
-            <div>
+            <div className="store-background">
                 <Header2 />
 
                 <div className="grid items">

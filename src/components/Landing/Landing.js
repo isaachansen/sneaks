@@ -14,7 +14,7 @@ export default class Landing extends Component {
           <div className="video-container">
 
                 <div className="label">
-                  <h1>BE YOUR OWN LABEL</h1>
+                  <h1 className="motto">BE YOUR OWN LABEL</h1>
                 </div>
                 <span>
                   <Link duration={700} smooth={true} to="2">
