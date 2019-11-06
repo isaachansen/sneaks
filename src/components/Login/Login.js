@@ -6,6 +6,19 @@ export default class Login extends Component {
         return(
             <div>
                 <Header2 />
+                <div>
+                    <div>
+                        <label>Username</label>
+                        <input></input>
+                    </div>
+                    <div>
+                        <label>Password</label>
+                        <input></input>
+                    </div>     
+                    <div>
+                        <button>Login</button>
+                    </div>
+                </div>
             </div>
         )
     }

@@ -1,0 +1,63 @@
+.image {
+    width: 300px;
+    margin-top: 2px;
+}
+
+.image:hover {
+    transform: scale(0.8);
+    cursor: pointer;
+}
+
+
+.item-container {
+    width: 400px;
+    height: 400px;
+    border: 1px solid black;
+    margin: 10px 10px;
+    display: inline-block;
+
+}
+
+.cart-btn {
+    padding: 8px 20px;
+    border: 2px solid black;
+    margin-top: 25px;
+    outline: none;
+    font-family: "Helvetica Neue";
+    font-size: 20px;
+    font-style: normal; 
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 22px;
+    cursor: pointer;
+}
+
+.cart-btn:hover {
+    // transition: border-radius .5s;
+    // border-radius: 40px;
+    background: black;
+    color: white;
+}
+
+h2 {
+    font-family: "Helvetica Neue";
+    font-size: 30px;
+    font-style: normal; 
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 22px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+h3 {
+    font-family: "Helvetica Neue";
+    font-size: 20px;
+    font-style: normal; 
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 22px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
