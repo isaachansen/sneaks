@@ -8,6 +8,8 @@ app.use(express.static(__dirname + "/../build"));
 
 const { register, login, logout, userSession } = require('./controller/userController');
 
+const { getInventory, getSingleItem } = require("./controller/InventoryController")
+
 let { CONNECTION_STRING, SESSION_SECRET, SERVER_PORT } = process.env;
 
 app.use(express.json());
@@ -33,12 +35,10 @@ app.post('/auth/login', login)
 app.get('/auth/user_session', userSession)
 app.delete('/auth/logout', logout)
 
-app.get('/api/inventory', (req, res, next) => {
-  const db = req.app.get('db')
-  db.query("SELECT * FROM inventory;").then((inventory) => {
-      res.status(200).send(inventory)
-  })
-})
+app.get('/api/inventory', getInventory);
+app.get('/api/inventory/:id',getSingleItem); 
+
+
 
 app.listen(SERVER_PORT, () => {
   console.log(`server live on port ${SERVER_PORT}`);

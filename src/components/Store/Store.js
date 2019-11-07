@@ -23,8 +23,6 @@ export default class Store extends Component {
     }, 2000);
   }
 
-  
-
   getAllInventory() {
     axios.get("/api/inventory").then(res => {
       this.setState({
@@ -52,16 +50,21 @@ export default class Store extends Component {
     return (
       <div className="store-background">
         <Header2 />
-        {
-          this.state.isLoading ? 
-          (<div className="load-box">
-              <div className="load">
-                <Loader className="loader" type="Rings" color="black" height={100} width={100}/>
-              </div>
-            </div>) 
-            : 
-            (<div className="grid items">{mappedInventory}</div>)
-        }
+        {this.state.isLoading ? (
+          <div className="load-box">
+            <div className="load">
+              <Loader
+                className="loader"
+                type="Rings"
+                color="black"
+                height={100}
+                width={100}
+              />
+            </div>
+          </div>
+        ) : (
+          <div className="grid items">{mappedInventory}</div>
+        )}
         {/* <div className="grid items">{mappedInventory}</div> */}
       </div>
     );
