@@ -25,11 +25,7 @@ app.use(
 
 massive(CONNECTION_STRING).then(db => {
   console.log("database connected");
-  db.init().then(() => {
-    app.set("db", db);
-  });
-
-  // app.set('db', db);
+  app.set('db', db);
 });
 
 app.post('/auth/register', register)

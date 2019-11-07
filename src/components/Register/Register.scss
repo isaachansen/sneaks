@@ -56,7 +56,7 @@ a {
 
 
 
-.background-login {
+.background-register {
     width: 100vw;
     height: 80vh;
     display: flex;
@@ -65,7 +65,7 @@ a {
     
 }
 
-.login-box {
+.register-box {
     width: 500px;
     height: 550px;
     background: rgb(223, 223, 223);
@@ -77,7 +77,7 @@ a {
 }
 
 
-.login-btn {
+.register-btn {
 
     button {
         padding: 8px 20px;
@@ -111,12 +111,12 @@ a {
     font-weight: 500;
 }
 
-.login-logo {
+.register-logo {
     width: 300px;
     margin-bottom: 20px;
 }
 
-.login-text {
+.register-text {
     color: $text;
     font: 1rem "PT Sans", sans-serif;
     font-size: 20px;

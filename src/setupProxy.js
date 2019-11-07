@@ -1,10 +1,18 @@
-const proxy = require('http-proxy-middleware');
+const proxy = require("http-proxy-middleware");
 module.exports = function(app) {
   app.use(
-    '/api',
+    "/api",
     proxy({
-      target: 'http://localhost:7180',
+      target: "http://localhost:7180",
       changeOrigin: true,
     })
   );
-}
+
+  app.use(
+    "/auth",
+    proxy({
+      target: "http://localhost:7180",
+      changeOrigin: true,
+    })
+  );
+};

@@ -1,24 +1,19 @@
 import React from "react";
 import "./Header2.scss";
 import logo from "./sneaks.png";
+import { connect } from "react-redux";
+import { setUser, logOutUser } from "../../ducks/reducer";
 import { NavLink } from "react-router-dom";
 
-class Header2 extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     toggle: false
-  //   };
-  //   this.toggler = this.toggler.bind(this);
-  // }
+import axios from "axios";
 
-  // toggler() {
-  //   this.setState(prevState => {
-  //     return {
-  //       toggle: !prevState.toggle
-  //     };
-  //   });
-  // }
+class Header2 extends React.Component {
+  
+  logout() {
+    axios.delete("/auth/logout").then(res => {
+        this.props.logOutUser()
+    })
+  }
 
   render() {
     return (
@@ -27,10 +22,37 @@ class Header2 extends React.Component {
           <NavLink to="/">
             <img className="logo2" src={logo} alt="logo"></img>
           </NavLink>
-          {/* <button className="menu"> */}
-          {/* <FaBars className="menu-icon" /> */}
-          {/* </button> */}
+
+        {!this.props.user ? (
           <nav>
+            <NavLink activeClassName="active" to="/store">
+              STORE
+            </NavLink>
+            <NavLink activeClassName="active" to="/contact">
+              CONTACT
+            </NavLink>
+            <NavLink activeClassName="active" to="/login">
+              LOGIN
+            </NavLink>
+          </nav> 
+
+        ):(
+          <nav>
+            <NavLink activeClassName="active" to="/store">
+              STORE
+            </NavLink>
+            <NavLink activeClassName="active" to="/cart">
+              CART
+            </NavLink>
+            <NavLink activeClassName="active" to="/contact">
+              CONTACT
+            </NavLink>
+            <NavLink onClick={() => this.logout()} activeClassName="active" to="/store">
+              LOGOUT
+            </NavLink>
+          </nav>
+        )}
+          {/* <nav>
             <NavLink activeClassName="active" to="/store">
               STORE
             </NavLink>
@@ -43,11 +65,24 @@ class Header2 extends React.Component {
             <NavLink activeClassName="active" to="/login">
               LOGIN
             </NavLink>
-          </nav>
+          </nav> */}
+
         </div>
       </div>
     );
   }
 }
 
-export default Header2;
+function mapReduxStateToProps(reduxState) {
+  return reduxState;
+}
+
+const mapDispatchToProps = {
+  setUser, 
+  logOutUser
+};
+
+export default connect(
+  mapReduxStateToProps,
+  mapDispatchToProps
+)(Header2);
