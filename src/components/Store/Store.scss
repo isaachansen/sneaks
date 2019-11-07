@@ -1,3 +1,16 @@
+
+
+.items {
+    width: 1400px;
+    height: 87vh;
+    display: inline-block;
+    float: right;
+    overflow: scroll;
+    border: 2px solid black;
+    margin: 10px;
+}
+
+
 .image {
     width: 300px;
     margin-top: 2px;

@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
-import Header2 from '../Header2/Header2';
+import React, { Component } from "react";
+import Header2 from "../Header2/Header2";
 import logo from "./sneaks2.png";
-import './Register.scss';
+import "./Register.scss";
 import { connect } from "react-redux";
 import { setUser } from "../../ducks/reducer";
-import { NavLink, Redirect } from "react-router-dom";
-import axios from 'axios';
+import { NavLink, Link } from "react-router-dom";
+import axios from "axios";
 
 class Register extends Component {
   constructor(props) {
@@ -14,30 +14,33 @@ class Register extends Component {
       email: "",
       username: "",
       password: ""
-    }
+    };
     this.register = this.register.bind(this);
   }
 
-    async register(e) {
-      if(this.state.email === "" || this.state.username === "" || this.state.password === "" ) {
-        e.preventDefault();
-      } else {
-        const { email, username, password } = this.state;
-        const registeredUser = await axios.post("/auth/register", {
+  async register(e) {
+    if (
+      this.state.email === "" ||
+      this.state.username === "" ||
+      this.state.password === ""
+    ) {
+      e.preventDefault();
+    } else {
+      const { email, username, password } = this.state;
+      const registeredUser = await axios.post("/auth/register", {
         email,
         username,
         password
       });
       console.log(registeredUser);
-      this.props.setUser(registeredUser.data)
-      }
+      this.props.setUser(registeredUser.data);
     }
+  }
 
-
-    render() {
-      const {email, username, password} = this.state;
-        return(
-            <div className="absolute-background">
+  render() {
+    const { email, username, password } = this.state;
+    return (
+      <div className="absolute-background">
         <Header2 />
         <div className="background-register">
           <div className="register-box">
@@ -55,7 +58,7 @@ class Register extends Component {
                       onChange={e => {
                         this.setState({
                           email: e.target.value
-                        })
+                        });
                       }}
                     />
                   </form>
@@ -73,8 +76,8 @@ class Register extends Component {
                       onChange={e => {
                         this.setState({
                           username: e.target.value
-                        })
-                      }} 
+                        });
+                      }}
                     />
                   </form>
                 </div>
@@ -91,7 +94,7 @@ class Register extends Component {
                       onChange={e => {
                         this.setState({
                           password: e.target.value
-                        })
+                        });
                       }}
                     />
                   </form>
@@ -99,7 +102,9 @@ class Register extends Component {
               </div>
 
               <div className="register-btn">
-                <button onClick={(e) => this.register(e)}>REGISTER</button>
+                <Link to="/store">
+                  <button onClick={e => this.register(e)}>REGISTER</button>
+                </Link>
               </div>
 
               <div className="register-text">
@@ -111,10 +116,9 @@ class Register extends Component {
           </div>
         </div>
       </div>
-        )
-    }
+    );
+  }
 }
-
 
 function mapReduxStateToProps(reduxState) {
   return reduxState;

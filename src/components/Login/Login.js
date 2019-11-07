@@ -5,8 +5,7 @@ import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { setUser } from "../../ducks/reducer";
 import "./Login.scss";
-import axios from 'axios';
-
+import axios from "axios";
 
 class Login extends Component {
   constructor(props) {
@@ -14,36 +13,27 @@ class Login extends Component {
     this.state = {
       email: "",
       password: ""
-    }
+    };
     this.login = this.login.bind(this);
+
   }
 
   async login(e) {
-    if(this.state.email === "" || this.state.password === "") {
+    if (this.state.email === "" || this.state.password === "") {
       e.preventDefault();
     } else {
       e.preventDefault();
       const { email, password } = this.state;
-    const loggedInUser = await axios.post("/auth/login", {
-      email,
-      password
-    })
-    console.log(loggedInUser);
-    this.props.setUser(loggedInUser.data)
+      const loggedInUser = await axios.post("/auth/login", {
+        email,
+        password
+      });
+      console.log(loggedInUser);
+      this.props.setUser(loggedInUser.data);
     }
-
-    // const { email, password } = this.state;
-    // const loggedInUser = await axios.post("/auth/login", {
-    //   email,
-    //   password
-    // })
-    // console.log(loggedInUser);
-    // this.props.setUser(loggedInUser.data)
   }
 
-
-
-
+  
   render() {
     const { email, password } = this.state;
     return (
@@ -65,7 +55,7 @@ class Login extends Component {
                       onChange={e => {
                         this.setState({
                           email: e.target.value
-                        })
+                        });
                       }}
                     />
                   </form>
@@ -83,7 +73,7 @@ class Login extends Component {
                       onChange={e => {
                         this.setState({
                           password: e.target.value
-                        })
+                        });
                       }}
                     />
                   </form>
@@ -91,14 +81,18 @@ class Login extends Component {
               </div>
 
               <div className="login-btn">
-                <button onClick={(e) => this.login(e)}>LOGIN</button>
+                  <button
+                  onClick={e => this.login(e)}
+                  >LOGIN</button>
               </div>
 
               <div className="register-text">
                 <h3>
-                  Don't have an account? <NavLink to="/register">REGISTER</NavLink>
+                  Don't have an account?{" "}
+                  <NavLink to="/register">REGISTER</NavLink>
                 </h3>
               </div>
+              
             </div>
           </div>
         </div>
