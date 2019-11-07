@@ -3,6 +3,9 @@ import Header2 from "../Header2/Header2";
 import "./Contact.scss";
 
 export default class Contact extends Component {
+
+
+
   render() {
     return (
       <div>
@@ -15,17 +18,17 @@ export default class Contact extends Component {
                 <input className="person-input" type="text" name="name" placeholder="Name" />
               </div>
               <div className="contact-input">
-                <input className="person-input" type="text" name="email" placeholder="Email" />
+                <input className="person-input" type="email" name="email" placeholder="Email" />
               </div>
               <div className="message-box"> 
                 <textarea
                   className="message-input"
                   id="message"
-                  placeholder="Write something.."
+                  placeholder="Message"
                 ></textarea>
               </div>
               <div>
-                <button>SUBMIT</button>
+                <button className="submit-button" onClick={e => e.preventDefault()}>SUBMIT</button>
               </div>
             </form>
           </div>

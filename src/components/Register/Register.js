@@ -4,7 +4,7 @@ import logo from "./sneaks2.png";
 import "./Register.scss";
 import { connect } from "react-redux";
 import { setUser } from "../../ducks/reducer";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import axios from "axios";
 
 class Register extends Component {
@@ -32,6 +32,7 @@ class Register extends Component {
         username,
         password
       });
+      this.props.history.push('/store')
       console.log(registeredUser);
       this.props.setUser(registeredUser.data);
     }
@@ -102,9 +103,7 @@ class Register extends Component {
               </div>
 
               <div className="register-btn">
-                <Link to="/store">
                   <button onClick={e => this.register(e)}>REGISTER</button>
-                </Link>
               </div>
 
               <div className="register-text">

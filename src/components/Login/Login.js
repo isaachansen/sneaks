@@ -28,6 +28,7 @@ class Login extends Component {
         email,
         password
       });
+      this.props.history.push('/store')
       console.log(loggedInUser);
       this.props.setUser(loggedInUser.data);
     }

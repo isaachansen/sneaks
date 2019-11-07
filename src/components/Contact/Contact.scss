@@ -5,13 +5,14 @@
 
 .contact-form {
     width: 800px;
-    height: 500px;
-    border: 2px solid black;
+    height: 600px;
+    border: 3px solid black;
     padding: 10px;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background: rgb(223, 223, 223)
 }
 
 
@@ -36,6 +37,12 @@
     border: 2px solid black;
     margin: 4px;
     outline: none;
+    font-family: "Helvetica Neue";
+    font-size: 16px;
+    font-style: normal; 
+    font-variant: normal;
+    font-weight: 600;
+    line-height: 22px;
 }
 
 .message-box {
@@ -49,4 +56,33 @@
     height: 300px;
     resize: none;
     outline: none;
+    padding: 10px;
+    font-family: "Helvetica Neue";
+    font-size: 16px;
+    font-style: normal; 
+    font-variant: normal;
+    font-weight: 600;
+    line-height: 15px;
 }
+
+
+    .submit-button {
+        padding: 8px 20px;
+        border: 2px solid black;
+        margin-top: 20px;
+    
+        outline: none;
+        font-family: "Helvetica Neue";
+        font-size: 20px;
+        font-style: normal; 
+        font-variant: normal;
+        font-weight: 500;
+        line-height: 22px;
+        cursor: pointer;
+
+        &:hover {
+            background: black;
+            color: white;
+        }
+    }
+    

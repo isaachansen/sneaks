@@ -1,20 +1,29 @@
 import React, { Component } from "react";
 import Header2 from "../Header2/Header2";
 import axios from "axios";
+import Loader from "react-loader-spinner";
 import "./Store.scss";
 
 export default class Store extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      inventory: []
+      inventory: [],
+      isLoading: true
     };
     this.getAllInventory = this.getAllInventory.bind(this);
   }
 
   componentDidMount() {
     this.getAllInventory();
+    setTimeout(() => {
+      this.setState({
+        isLoading: false
+      });
+    }, 2000);
   }
+
+  
 
   getAllInventory() {
     axios.get("/api/inventory").then(res => {
@@ -43,7 +52,17 @@ export default class Store extends Component {
     return (
       <div className="store-background">
         <Header2 />
-        <div className="grid items">{mappedInventory}</div>
+        {
+          this.state.isLoading ? 
+          (<div className="load-box">
+              <div className="load">
+                <Loader className="loader" type="Rings" color="black" height={100} width={100}/>
+              </div>
+            </div>) 
+            : 
+            (<div className="grid items">{mappedInventory}</div>)
+        }
+        {/* <div className="grid items">{mappedInventory}</div> */}
       </div>
     );
   }

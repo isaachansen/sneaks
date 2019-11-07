@@ -15,11 +15,13 @@
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-icons": "^3.8.0",
+    "react-loader-spinner": "^3.1.4",
     "react-redux": "^7.1.3",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "react-scroll": "^1.7.14",
-    "redux": "^4.0.4"
+    "redux": "^4.0.4",
+    "styled-loaders-react": "^1.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
