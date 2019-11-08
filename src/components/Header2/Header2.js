@@ -47,25 +47,11 @@ class Header2 extends React.Component {
             <NavLink activeClassName="active" to="/contact">
               CONTACT
             </NavLink>
-            <NavLink onClick={() => this.logout()} activeClassName="active" to="/store">
+            <NavLink onClick={() => this.logout()} activeClassName="none" to="/store">
               LOGOUT
             </NavLink>
           </nav>
         )}
-          {/* <nav>
-            <NavLink activeClassName="active" to="/store">
-              STORE
-            </NavLink>
-            <NavLink activeClassName="active" to="/cart">
-              CART
-            </NavLink>
-            <NavLink activeClassName="active" to="/contact">
-              CONTACT
-            </NavLink>
-            <NavLink activeClassName="active" to="/login">
-              LOGIN
-            </NavLink>
-          </nav> */}
 
         </div>
       </div>

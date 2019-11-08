@@ -29,29 +29,29 @@ class Header extends React.Component {
 
           {!this.props.user ? (
           <nav>
-            <NavLink activeClassName="active" to="/store">
+            <NavLink to="/store">
               STORE
             </NavLink>
-            <NavLink activeClassName="active" to="/contact">
+            <NavLink to="/contact">
               CONTACT
             </NavLink>
-            <NavLink activeClassName="active" to="/login">
+            <NavLink to="/login">
               LOGIN
             </NavLink>
           </nav> 
 
         ):(
           <nav>
-            <NavLink activeClassName="active" to="/store">
+            <NavLink to="/store">
               STORE
             </NavLink>
-            <NavLink activeClassName="active" to="/cart">
+            <NavLink to="/cart">
               CART
             </NavLink>
-            <NavLink activeClassName="active" to="/contact">
+            <NavLink to="/contact">
               CONTACT
             </NavLink>
-            <NavLink onClick={() => this.logout()} activeClassName="active" to="/store">
+            <NavLink onClick={() => this.logout()} to="/store">
               LOGOUT
             </NavLink>
           </nav>

@@ -39,12 +39,17 @@
       font-variant: normal;
       font-weight: 800;
       line-height: 22px;
+
+      &.active {
+        text-decoration: underline #9BF3FF;
+        text-underline-position: under;
+      }
+
     }
+
   
     .head2 a:hover {
       color: #9BF3FF;
     }
 
-    // .active {
-    //   color: blue;
-    // }
+  

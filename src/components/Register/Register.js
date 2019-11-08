@@ -32,7 +32,7 @@ class Register extends Component {
         username,
         password
       });
-      this.props.history.push('/store')
+      this.props.history.push("/store");
       console.log(registeredUser);
       this.props.setUser(registeredUser.data);
     }
@@ -103,7 +103,7 @@ class Register extends Component {
               </div>
 
               <div className="register-btn">
-                  <button onClick={e => this.register(e)}>REGISTER</button>
+                <button onClick={e => this.register(e)}>REGISTER</button>
               </div>
 
               <div className="register-text">
