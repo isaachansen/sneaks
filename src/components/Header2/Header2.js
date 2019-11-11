@@ -8,11 +8,10 @@ import { NavLink } from "react-router-dom";
 import axios from "axios";
 
 class Header2 extends React.Component {
-  
   logout() {
     axios.delete("/auth/logout").then(res => {
-        this.props.logOutUser()
-    })
+      this.props.logOutUser();
+    });
   }
 
   render() {
@@ -23,36 +22,42 @@ class Header2 extends React.Component {
             <img className="logo2" src={logo} alt="logo"></img>
           </NavLink>
 
-        {!this.props.user ? (
-          <nav>
-            <NavLink activeClassName="active" to="/store">
-              STORE
-            </NavLink>
-            <NavLink activeClassName="active" to="/contact">
-              CONTACT
-            </NavLink>
-            <NavLink activeClassName="active" to="/login">
-              LOGIN
-            </NavLink>
-          </nav> 
-
-        ):(
-          <nav>
-            <NavLink activeClassName="active" to="/store">
-              STORE
-            </NavLink>
-            <NavLink activeClassName="active" to="/cart">
-              CART
-            </NavLink>
-            <NavLink activeClassName="active" to="/contact">
-              CONTACT
-            </NavLink>
-            <NavLink onClick={() => this.logout()} activeClassName="none" to="/store">
-              LOGOUT
-            </NavLink>
-          </nav>
-        )}
-
+          {!this.props.user ? (
+            <nav>
+              <NavLink activeClassName="active" to="/store">
+                STORE
+              </NavLink>
+              <NavLink activeClassName="active" to="/contact">
+                CONTACT
+              </NavLink>
+              <NavLink activeClassName="active" to="/login">
+                LOGIN
+              </NavLink>
+            </nav>
+          ) : (
+            <nav>
+              <NavLink activeClassName="active" to="/store">
+                STORE
+              </NavLink>
+              <NavLink activeClassName="active" to="/cart">
+                CART
+              </NavLink>
+              <NavLink activeClassName="active" to="/contact">
+                CONTACT
+              </NavLink>
+              <NavLink to="/profile">
+                PROFILE
+                {/* <FaUserAlt  className="profile"/> */}
+              </NavLink>
+              <NavLink
+                onClick={() => this.logout()}
+                activeClassName="none"
+                to="/store"
+              >
+                LOGOUT
+              </NavLink>
+            </nav>
+          )}
         </div>
       </div>
     );
@@ -64,7 +69,7 @@ function mapReduxStateToProps(reduxState) {
 }
 
 const mapDispatchToProps = {
-  setUser, 
+  setUser,
   logOutUser
 };
 

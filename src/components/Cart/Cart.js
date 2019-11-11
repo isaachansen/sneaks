@@ -8,6 +8,11 @@ export default class Cart extends Component {
             <div className="absolute-cart">
                 <Header2 />
                 <div className="background-cart">
+                    <div>
+                        <div>
+                            CART
+                        </div>
+                    </div>
                     <div className="cart-box"></div>
                 </div>
             </div>

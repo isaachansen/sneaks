@@ -63,9 +63,28 @@ export default class Store extends Component {
             </div>
           </div>
         ) : (
-          <div className="grid items">{mappedInventory}</div>
+          <div className="store-body">
+            <div className="store-filter">
+            <div className="store-title">
+              STORE
+            </div>
+            <div className="filter-box">
+              <div className="filter-text">FILTER</div>
+              <div className="name-container">
+              <button className="shoe-button">ADIDAS</button>
+              <button className="shoe-button">AIR JORDAN</button>
+              <button className="shoe-button">CONVERSE</button>
+              <button className="shoe-button">NIKE</button>
+              <button className="shoe-button">VANS</button>
+              <button className="shoe-button">OTHER</button>
+              </div>
+            </div>
+            </div>
+
+            <div className="grid items">{mappedInventory}</div>
+          </div>
+          
         )}
-        {/* <div className="grid items">{mappedInventory}</div> */}
       </div>
     );
   }

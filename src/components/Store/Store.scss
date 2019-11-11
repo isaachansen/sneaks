@@ -99,4 +99,76 @@
     height: 84vh;
 }
 
+.store-title {
+    font-family: "Helvetica Neue";
+    font-size: 60px;
+    font-style: normal; 
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 22px;
+    display: flex;
+    margin: 45px;
+}
+
+.filter-box { 
+    width: 300px;
+    height: 200px;
+    border: 2px solid black;
+    display: flex;
+    margin-right: 20px;
+    margin-top: 15px;
+    border-radius: 15px;
+}
+
+.store-body {
+    display: flex;
+    justify-content: center;
+}
+
+.store-filter {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-box {
+    display: inline-block;
+    justify-content: center;
+    font-family: "Helvetica Neue";
+    font-style: normal; 
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 22px;
+
+    .filter-text {
+        font-size: 30px;
+        margin-bottom: 20px;
+        margin-top: 10px;
+    }
+
+    .name-container {
+        font-size: 20px;
+        padding: 20px;
+    }
+
+    .shoe-button {
+        padding: 6px 8px;
+        border-radius: 12px;
+        border: 3px solid black;
+        margin: 2px;
+        background: black;
+        color: white;
+        font-family: "Helvetica Neue";
+        font-style: normal; 
+        font-variant: normal;
+        font-weight: 700;
+        line-height: 22px;
+        outline: none;
+    }
+
+    .shoe-button:hover {
+        background: white;
+        color: black; 
+        cursor: pointer;
+    }
+}
 

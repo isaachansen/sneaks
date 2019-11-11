@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { setUser } from "./ducks/reducer";
 import Contact from "./components/Contact/Contact";
 import Login from "./components/Login/Login";
+import Profile from "./components/Profile/Profile";
 import Register from "./components/Register/Register";
 import { Switch, Route, withRouter } from "react-router-dom";
 import "./App.css";
@@ -21,6 +22,7 @@ class App extends Component {
           <Route path="/contact" component={Contact} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
+          <Route path="/profile" component={Profile} />
         </Switch>
       </div>
     );
