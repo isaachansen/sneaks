@@ -4,7 +4,7 @@ const session = require("express-session");
 const massive = require("massive");
 const app = express();
 
-app.use(express.static(__dirname + "/../build"));
+app.use( express.static( `${__dirname}/../build` ) );
 
 const { register, login, logout, userSession } = require('./controller/userController');
 
@@ -50,6 +50,12 @@ app.get('/api/inventory/nike',  (req, res) => {
 
 app.get('/api/cart/:id', getCart);
 app.post('/api/add_to_cart', addToCart)
+
+
+const path = require('path')
+app.get('*', (req, res)=>{
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+})
 
 app.listen(SERVER_PORT, () => {
   console.log(`server live on port ${SERVER_PORT}`);

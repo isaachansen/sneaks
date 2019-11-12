@@ -20,7 +20,6 @@ class Cart extends Component {
 
     getCustomerCart = async () => {
         const cart = await axios.get(`/api/cart/${this.props.user.user_id}`);
-        console.log(cart.data);
         this.setState({
             cart: cart.data
         })
