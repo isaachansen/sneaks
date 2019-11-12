@@ -10,6 +10,8 @@ const { register, login, logout, userSession } = require('./controller/userContr
 
 const { getInventory, getSingleItem } = require("./controller/InventoryController")
 
+const {getCart, addToCart} = require("./controller/cartController");
+
 let { CONNECTION_STRING, SESSION_SECRET, SERVER_PORT } = process.env;
 
 app.use(express.json());
@@ -36,9 +38,18 @@ app.get('/auth/user_session', userSession)
 app.delete('/auth/logout', logout)
 
 app.get('/api/inventory', getInventory);
-app.get('/api/inventory/:id',getSingleItem); 
+app.get('/api/inventory/:id',getSingleItem);
 
+app.get('/api/inventory/nike',  (req, res) => {
+  const db = req.app.get("db");
+  db.get_nike().then(inventory => {
+    res.status(200).send(inventory);
 
+  })
+});
+
+app.get('/api/cart/:id', getCart);
+app.post('/api/add_to_cart', addToCart)
 
 app.listen(SERVER_PORT, () => {
   console.log(`server live on port ${SERVER_PORT}`);

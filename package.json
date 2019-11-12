@@ -22,6 +22,8 @@
     "react-scroll": "^1.7.14",
     "react-toastify": "^5.4.0",
     "redux": "^4.0.4",
+    "redux-logger": "^3.0.6",
+    "redux-promise-middleware": "^6.1.2",
     "styled-loaders-react": "^1.1.0"
   },
   "scripts": {

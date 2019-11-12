@@ -12,6 +12,18 @@ module.exports = {
         await db.get_single_item(id).then(item => {
             res.status(200).send(item)
         })
+    },
+    // getNikeItem: async (req, res) => {
+    //     const db = req.app.get("db");
+    //    await db.get_nike().then(inventory => {
+    //         res.status(200).send(inventory);
+    //     })
+    // },
+    getVansItem: async (req, res) => {
+        const db = req.app.get("db");
+        await db.get_vans().then(brand => {
+            res.status(200).send(brand);
+        })
     }
 
 }

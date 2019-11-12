@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import Header2 from "../Header2/Header2";
 import axios from "axios";
 import Loader from "react-loader-spinner";
+import { connect } from 'react-redux';
+import { addToCart } from '../../ducks/reducer'
 import "./Store.scss";
 
-export default class Store extends Component {
+class Store extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -31,6 +33,19 @@ export default class Store extends Component {
     });
   }
 
+  buttonAddToCart = async (user_id, shoe_id) => {
+    let cart = await axios.post('/api/add_to_cart', {user_id, shoe_id})
+    this.props.addToCart(cart.data)
+  }
+
+  getCart() {
+    axios.get('/api/cart').then(res => {
+      this.setState({
+        inventory: res.data
+      })
+    })
+  }
+
   render() {
     const { inventory } = this.state;
     const mappedInventory = inventory.map(shoe => {
@@ -42,7 +57,10 @@ export default class Store extends Component {
           <h2 className="brand ">{shoe.shoe_brand}</h2>
           <h3 className="name">{shoe.shoe_name}</h3>
           <h2 className="price">${shoe.price}</h2>
-          <button className="cart-btn">ADD TO CART</button>
+          <button name={shoe.shoe_id} className="cart-btn" onClick={(e) => {this.buttonAddToCart(
+            this.props.user.user_id,
+            Number(e.target.name)
+          )}}>ADD TO CART</button>
         </div>
       );
     });
@@ -71,6 +89,7 @@ export default class Store extends Component {
             <div className="filter-box">
               <div className="filter-text">FILTER</div>
               <div className="name-container">
+              <button className="shoe-button">ALL</button>
               <button className="shoe-button">ADIDAS</button>
               <button className="shoe-button">AIR JORDAN</button>
               <button className="shoe-button">CONVERSE</button>
@@ -89,3 +108,9 @@ export default class Store extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return state;
+}
+
+export default connect(mapStateToProps, {addToCart})(Store);
