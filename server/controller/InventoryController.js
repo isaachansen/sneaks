@@ -13,17 +13,41 @@ module.exports = {
             res.status(200).send(item)
         })
     },
-    // getNikeItem: async (req, res) => {
-    //     const db = req.app.get("db");
-    //    await db.get_nike().then(inventory => {
-    //         res.status(200).send(inventory);
-    //     })
-    // },
+    getNikeItem: async (req, res) => {
+        const db = req.app.get("db");
+       const nike = await db.get_nike()
+            res.status(200).send(nike);
+        
+    },
     getVansItem: async (req, res) => {
         const db = req.app.get("db");
-        await db.get_vans().then(brand => {
-            res.status(200).send(brand);
-        })
+       const vans = await db.get_vans()
+            res.status(200).send(vans);
+        
+    },
+    getAdidasItem: async (req, res) => {
+        const db = req.app.get("db");
+       const adidas = await db.get_adidas()
+            res.status(200).send(adidas);
+        
+    },
+    getConverseItem: async (req, res) => {
+        const db = req.app.get("db");
+       const converse = await db.get_converse()
+            res.status(200).send(converse);
+        
+    },
+    getAirJordanItem: async (req, res) => {
+        const db = req.app.get("db");
+       const aj = await db.get_air_jordan()
+            res.status(200).send(aj);
+        
+    },
+    getOtherItem: async (req, res) => {
+        const db = req.app.get("db");
+       const other = await db.get_other()
+            res.status(200).send(other);
+        
     }
 
 }

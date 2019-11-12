@@ -1,16 +1,92 @@
+
+
 .background-cart {
     width: 100%;
-    height: 90vh;
+    height: 80vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 
 .cart-box {
     width:  1200px;
-    height: 800px;
+    height: 700px;
     border: 2px solid black;
     overflow: scroll;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cart-text-box {
+    height: 50px;
+    width: 1200px;
+}
+
+.cart-text {
+    font-family: "Helvetica Neue";
+    font-size: 55px;
+    font-style: normal; 
+    font-variant: normal;
+    font-weight: 800;
+    line-height: 22px;
+    display: flex;
+}
+
+
+.cart-item-container {
+    width: 1100px;
+    height: 500px;
+    border: 3px solid black;
+    margin: 3px;
+}
+
+.cart-image {
+    width: 300px;
+
+}
+.cart-image-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 60px;
+}
+
+.cart-brand {
+    font-family: "Helvetica Neue";
+    font-size: 30px;
+    font-style: normal; 
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 22px;
+    border-radius: 5px;
+    margin-top: 5px;
+    color: black
+}
+
+.cart-price {
+    font-family: "Helvetica Neue";
+    font-size: 30px;
+    font-style: normal; 
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 22px;
+    border-radius: 5px;
+    margin: 5px;
+    color: black;
+}
+
+.cart-name {
+    font-family: "Helvetica Neue";
+    font-size: 20px;
+    font-style: normal; 
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 22px;
+    border-radius: 5px;
+    margin-top: 5px;
+    color: black;
 }

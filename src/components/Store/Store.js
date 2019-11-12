@@ -6,6 +6,10 @@ import { connect } from 'react-redux';
 import { addToCart } from '../../ducks/reducer'
 import "./Store.scss";
 
+
+
+
+
 class Store extends Component {
   constructor(props) {
     super(props);
@@ -14,6 +18,12 @@ class Store extends Component {
       isLoading: true
     };
     this.getAllInventory = this.getAllInventory.bind(this);
+    this.getNike = this.getNike.bind(this);
+    this.getVans = this.getVans.bind(this);
+    this.getConverse = this.getConverse.bind(this);
+    this.getAdidas = this.getAdidas.bind(this);
+    this.getOther = this.getOther.bind(this);
+    this.getAirJordan = this.getAirJordan.bind(this);
   }
 
   componentDidMount() {
@@ -31,6 +41,54 @@ class Store extends Component {
         inventory: res.data
       });
     });
+  }
+
+  getNike() {
+    axios.get("/api/nike").then(res => {
+      this.setState({
+        inventory: res.data
+      })
+    })
+  }
+
+  getVans() {
+    axios.get("/api/vans").then(res => {
+      this.setState({
+        inventory: res.data
+      })
+    })
+  }
+
+  getConverse() {
+    axios.get("/api/converse").then(res => {
+      this.setState({
+        inventory: res.data
+      })
+    })
+  }
+
+  getAdidas() {
+    axios.get("/api/adidas").then(res => {
+      this.setState({
+        inventory: res.data
+      })
+    })
+  }
+
+  getAirJordan() {
+    axios.get("/api/air_jordan").then(res => {
+      this.setState({
+        inventory: res.data
+      })
+    })
+  }
+
+  getOther() {
+    axios.get("/api/other").then(res => {
+      this.setState({
+        inventory: res.data
+      })
+    })
   }
 
   buttonAddToCart = async (user_id, shoe_id) => {
@@ -89,13 +147,13 @@ class Store extends Component {
             <div className="filter-box">
               <div className="filter-text">FILTER</div>
               <div className="name-container">
-              <button className="shoe-button">ALL</button>
-              <button className="shoe-button">ADIDAS</button>
-              <button className="shoe-button">AIR JORDAN</button>
-              <button className="shoe-button">CONVERSE</button>
-              <button className="shoe-button">NIKE</button>
-              <button className="shoe-button">VANS</button>
-              <button className="shoe-button">OTHER</button>
+              <button onClick={() => this.getAllInventory()} className="shoe-button">ALL</button>
+              <button onClick={() => this.getAdidas()} className="shoe-button">ADIDAS</button>
+              <button onClick={() => this.getAirJordan()} className="shoe-button">AIR JORDAN</button>
+              <button onClick={() => this.getConverse()} className="shoe-button">CONVERSE</button>
+              <button onClick={() => this.getNike()} className="shoe-button">NIKE</button>
+              <button onClick={() => this.getVans()} className="shoe-button">VANS</button>
+              <button onClick={() => this.getOther()} className="shoe-button">OTHER</button>
               </div>
             </div>
             </div>

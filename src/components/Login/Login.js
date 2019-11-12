@@ -23,7 +23,6 @@ class Login extends Component {
     if (this.state.email === "" || this.state.password === "") {
       e.preventDefault();
     } else {
-      e.preventDefault();
       const { email, password } = this.state;
       const loggedInUser = await axios.post("/auth/login", {
         email,
