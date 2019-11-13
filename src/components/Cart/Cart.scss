@@ -7,7 +7,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 
@@ -17,7 +17,6 @@
     border: 2px solid black;
     overflow: scroll;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
 }
@@ -89,4 +88,31 @@
     border-radius: 5px;
     margin-top: 5px;
     color: black;
+}
+
+.check-out-btn {
+    padding: 7px 20px;
+    border: 2px solid black;
+    outline: none;
+    font-size: 20px;
+    font-family: futura-pt, sans-serif;
+    font-style: normal; 
+    font-weight: 700;
+    cursor: pointer;
+
+    &:hover {
+        background: black;
+        color: white;
+    }
+}
+
+.cart-footer {
+    width: 1200px;
+    height: 80px;
+    border-top: 2px solid black;
+    position: fixed;
+    display: flex;
+    justify-content: center;;
+    align-items: flex-end;
+
 }

@@ -21,10 +21,10 @@ const {
   getAdidasItem,
   getConverseItem,
   getAirJordanItem,
-  getOtherItem
+  getOtherItem,
 } = require("./controller/InventoryController");
 
-const { getCart, addToCart } = require("./controller/cartController");
+const { getCart, addToCart, deleteFromCart} = require("./controller/cartController");
 
 let { CONNECTION_STRING, SESSION_SECRET, SERVER_PORT } = process.env;
 
@@ -63,6 +63,7 @@ app.get("/api/other", getOtherItem);
 
 app.get("/api/cart/:id", getCart);
 app.post("/api/add_to_cart", addToCart);
+app.delete("/api/cart/:id", deleteFromCart);
 
 const path = require("path");
 app.get("*", (req, res) => {

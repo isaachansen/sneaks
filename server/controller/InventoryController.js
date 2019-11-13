@@ -1,9 +1,8 @@
 module.exports = {
-  getInventory: (req, res) => {
+  getInventory:  async (req, res) => {
     const db = req.app.get("db");
-    db.get_all_inventory().then(inventory => {
-      res.status(200).send(inventory);
-    });
+    const inventory = await db.get_all_inventory()
+      res.status(200).send(inventory)
   },
   getSingleItem: (req, res) => {
     const { id } = req.params;

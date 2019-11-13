@@ -4,7 +4,7 @@ import logo from "./sneaks.png";
 import { connect } from "react-redux";
 import { setUser, logOutUser } from "../../ducks/reducer";
 import { NavLink } from "react-router-dom";
-
+import { FaAngleDown } from "react-icons/fa";
 import axios from "axios";
 
 class Header2 extends React.Component {
@@ -45,9 +45,9 @@ class Header2 extends React.Component {
               <NavLink activeClassName="active" to="/contact">
                 CONTACT
               </NavLink>
-              <NavLink to="/profile">
-                PROFILE
-                {/* <FaUserAlt  className="profile"/> */}
+              <NavLink className="user-profile" to="/profile">
+                {this.props.user.username}
+                <FaAngleDown className="arrow-down" />
               </NavLink>
               <NavLink
                 onClick={() => this.logout()}
@@ -73,7 +73,4 @@ const mapDispatchToProps = {
   logOutUser
 };
 
-export default connect(
-  mapReduxStateToProps,
-  mapDispatchToProps
-)(Header2);
+export default connect(mapReduxStateToProps, mapDispatchToProps)(Header2);
