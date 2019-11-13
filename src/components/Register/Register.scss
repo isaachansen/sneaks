@@ -85,12 +85,11 @@ a {
         margin-top: 20px;
         margin-bottom: 8px;
         outline: none;
-        font-family: "Helvetica Neue";
+        font-family: acumin-pro, sans-serif;
         font-size: 20px;
         font-style: normal; 
         font-variant: normal;
-        font-weight: 500;
-        line-height: 22px;
+        font-weight: 700;
         cursor: pointer;
 
         &:hover {
@@ -99,16 +98,6 @@ a {
         }
     }
     
-}
-
-
-.welcome {
-    color: black;
-    font-size: 50px;
-    font-family: "Helvetica Neue";
-    font-style: normal; 
-    font-variant: normal;
-    font-weight: 500;
 }
 
 .register-logo {

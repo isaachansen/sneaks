@@ -17,7 +17,7 @@
 
 
 .contact-title {
-    font-family: "Helvetica Neue";
+    font-family: acumin-pro, sans-serif;
     font-size: 40px;
     font-style: normal; 
     font-variant: normal;
@@ -37,7 +37,7 @@
     border: 2px solid black;
     margin: 4px;
     outline: none;
-    font-family: "Helvetica Neue";
+    font-family: acumin-pro, sans-serif;
     font-size: 16px;
     font-style: normal; 
     font-variant: normal;
@@ -57,7 +57,7 @@
     resize: none;
     outline: none;
     padding: 10px;
-    font-family: "Helvetica Neue";
+    font-family: acumin-pro, sans-serif;
     font-size: 16px;
     font-style: normal; 
     font-variant: normal;
@@ -72,12 +72,11 @@
         margin-top: 20px;
     
         outline: none;
-        font-family: "Helvetica Neue";
+        font-family: acumin-pro, sans-serif;
         font-size: 20px;
         font-style: normal; 
         font-variant: normal;
-        font-weight: 500;
-        line-height: 22px;
+        font-weight: 700;
         cursor: pointer;
 
         &:hover {
