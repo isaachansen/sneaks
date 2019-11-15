@@ -1,8 +1,6 @@
 
 
 .background-cart {
-    width: 100%;
-    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -12,9 +10,8 @@
 
 
 .cart-box {
-    width:  1200px;
-    height: 700px;
-    border: 2px solid black;
+    width:  900px;
+    height: 400px;
     overflow: scroll;
     display: flex;
     align-items: center;
@@ -26,26 +23,29 @@
     width: 1200px;
 }
 
-.cart-text {
-    font-family: acumin-pro,sans-serif;
-    font-weight: 700;
-    font-style: normal; 
-    font-size: 60px;
-    font-variant: normal;
-    line-height: 22px;
-    display: flex;
-}
+// .cart-text {
+//     font-family: acumin-pro,sans-serif;
+//     font-weight: 700;
+//     font-style: normal; 
+//     font-size: 60px;
+//     font-variant: normal;
+//     line-height: 22px;
+//     display: flex;
+// }
 
 
 .cart-item-container {
-    width: 1100px;
-    height: 500px;
-    border: 3px solid black;
+    width: 800px;
+    height: 100px;
+    border-bottom: 1px solid black;
     margin: 3px;
+    display: flex;
+    align-items: center;
 }
 
 .cart-image {
-    width: 300px;
+    width: 100px;
+    height: auto;
 
 }
 .cart-image-container {
@@ -58,7 +58,7 @@
     font-family: acumin-pro,sans-serif;
     font-weight: 700;
     font-style: normal; 
-    font-size: 30px;
+    font-size: 15px;
     font-variant: normal;
     line-height: 22px;
     border-radius: 5px;
@@ -82,7 +82,7 @@
     font-family: acumin-pro,sans-serif;
     font-weight: 700;
     font-style: normal; 
-    font-size: 20px;
+    font-size: 10px;
     font-variant: normal;
     line-height: 22px;
     border-radius: 5px;
@@ -94,7 +94,9 @@
     padding: 7px 20px;
     border: 2px solid black;
     outline: none;
-    font-size: 20px;
+    font-size: 15px;
+    margin: 0 auto;
+    margin-top: 10px;
     font-family: futura-pt, sans-serif;
     font-style: normal; 
     font-weight: 700;
@@ -106,13 +108,18 @@
     }
 }
 
-.cart-footer {
-    width: 1200px;
-    height: 80px;
-    border-top: 2px solid black;
-    position: fixed;
-    display: flex;
-    justify-content: center;;
-    align-items: flex-end;
 
+.cart-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.total-price {
+    margin-top: 15px;
+    position: absolute;
+    font-family: futura-pt, sans-serif;
+    font-style: normal; 
+    font-weight: 700;
+    font-size: 30px;
+    margin-left: 300px;
 }

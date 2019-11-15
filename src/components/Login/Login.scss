@@ -44,7 +44,7 @@ a {
     border: 0;
     outline: 0;
     padding: 22px 18px;
-    color: $text;
+    color: #333;
     font: 1rem "PT Sans", sans-serif;
   }
 }
@@ -58,14 +58,16 @@ a {
 }
 
 .login-box {
-  width: 500px;
+  width: 450px;
   height: 500px;
-  background: rgb(223, 223, 223);
+  background: rgb(53, 53, 53);
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid black;
+  border: 5px solid black;
+  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
 .login-btn {
@@ -75,7 +77,7 @@ a {
     margin-top: 20px;
     margin-bottom: 8px;
     outline: none;
-    font-family: acumin-pro, sans-serif;
+    font-family: futura-pt ;
     font-style: normal;
     font-size: 20px;
     font-variant: normal;

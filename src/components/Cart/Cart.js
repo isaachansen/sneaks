@@ -3,13 +3,19 @@ import Header2 from "../Header2/Header2";
 import axios from "axios";
 import { connect } from "react-redux";
 import { getCart } from "../../ducks/reducer";
+import StripeCheckout from "react-stripe-checkout";
 import "./Cart.scss";
+
+function handleToken(token, addresses) {
+  console.log({token, addresses})
+}
 
 class Cart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cart: []
+      cart: [],
+      totalPrice: 0
     };
     this.getCustomerCart = this.getCustomerCart.bind(this);
     this.deleteFromCart = this.deleteFromCart.bind(this);
@@ -24,7 +30,16 @@ class Cart extends Component {
     this.setState({
       cart: cart.data
     });
+    const addNumbers = this.state.cart.map(item => {
+      return item.price
+    }).reduce((acc, currentValue) => {
+      return (acc += currentValue);
+    }, 0);
+    this.setState({
+      totalPrice: addNumbers
+    })
   };
+
 
   deleteFromCart() {
    const cart = axios.delete(`/api/cart/${this.props.cart.cart_id}`)
@@ -32,6 +47,9 @@ class Cart extends Component {
       cart: cart.data
     })
   }
+
+
+
   
 
   render() {
@@ -50,20 +68,32 @@ class Cart extends Component {
         </div>
       );
     });
+
     return (
       <div className="absolute-cart">
         <Header2 />
         <div className="background-cart">
           <div className="cart-text-box">
-            <div className="cart-text">CART</div>
+            <div className="cart-text"></div>
           </div>
           <div className="cart-box-background">
             <div className="cart-box">
             {mappedCart}
             </div>
           </div>
+            <div className="cart-info">
+              {/* <button className="check-out-btn">CHECKOUT</button> */}
+              <StripeCheckout 
+              stripeKey="pk_test_0Tq8vbXjxqTXMw2SpLjTizYI00ro0ak9v1"
+              token={handleToken}
+              billingAddress
+              shippingAddress
+              amount={this.state.totalPrice * 100}
+              />
+              <h2 className="total-price">Total: ${this.state.totalPrice}</h2>
+            </div>
         </div>
-        <button className="check-out-btn">CHECKOUT</button>
+
       </div>
     );
   }

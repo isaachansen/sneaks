@@ -33,13 +33,12 @@ export default class Landing extends Component {
         </header>
 
         <div id="2" className="container-2">
-          <div className="brands-container">
-            <div className="box-top">NIKE</div>
-            <div className="box-top">ADIDAS</div>
-            <div className="box-top">VANS</div>
-            <div className="box-bottom">CONVERSE</div>
-            <div className="box-bottom">AIR JORDAN</div>
-            <div className="box-bottom">OTHER</div>
+          <div className="top-container">
+            <div className="top-img"></div>
+          </div>
+          <div className="bottom-container">
+            <div className="left-img imgs"></div>
+            <div className="right-img imgs"></div>
           </div>
         </div>
       </div>

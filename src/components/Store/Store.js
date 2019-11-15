@@ -4,8 +4,8 @@ import axios from "axios";
 import Loader from "react-loader-spinner";
 import { connect } from 'react-redux';
 import { addToCart } from '../../ducks/reducer'
+import { TiHeartOutline } from "react-icons/ti";
 import "./Store.scss";
-
 
 
 
@@ -110,6 +110,7 @@ class Store extends Component {
       return (
         <div className="item-container" key={shoe.shoe_id}>
           <div className="image-container">
+            <TiHeartOutline className="heart"/>
             <img className="image" src={shoe.image} alt="shoes" />
           </div>
           <h2 className="brand ">{shoe.shoe_brand}</h2>

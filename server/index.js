@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const session = require("express-session");
 const massive = require("massive");
+const nodemailer = require("nodemailer");
 const app = express();
 
 app.use(express.static(`${__dirname}/../build`));
@@ -68,6 +69,47 @@ app.delete("/api/cart/:id", deleteFromCart);
 const path = require("path");
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../build/index.html"));
+});
+
+
+app.post("/auth/contact", (req, res) => {
+  const { name, email, message } = req.body;
+  console.log(name, email, message);
+
+  let transporter = nodemailer.createTransport({
+    service: "Gmail",
+    auth: {
+      user: process.env.EMAIL_NAME,
+      pass: process.env.EMAIL_PASSWORD
+    },
+    tls: {
+      rejectUnauthorized: false
+    }
+  });
+
+  let mailOptions = {
+    from: email,
+    to: process.env.EMAIL_NAME,
+    subject: "New Message",
+    html: `<body>
+         <h1>New Message</h1>
+         <ul style='list-style-type: none; padding: 0px; font-size: 18px; color: #333; font-family: sans-serif;'>
+             <li>Name: ${name}</li>
+             <li>Email: ${email}</li>
+             <li>Message: ${message}</li>
+         </ul>
+         <body>`
+  };
+  console.log(mailOptions);
+  transporter.sendMail(mailOptions, function(err, data) {
+    if (err) {
+      console.log("error occurs", err);
+      res.end()
+    } else {
+      console.log("email sent");
+      res.end()
+    }
+  });
 });
 
 app.listen(SERVER_PORT, () => {
