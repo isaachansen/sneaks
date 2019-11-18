@@ -172,13 +172,25 @@
 .heart {
     position: relative;
     width: 30px;
-    height: auto;
+    height: 30px;
     margin-top: 10px;
-    margin-left: 235px;
+    margin-left: 250px;
+    background: url("./heart.svg");
 
     &:hover {
         transform: scale(1.1);
         cursor: pointer;
-        color: rgb(180, 0, 0);
+        background: url("./heart-filled.svg")
     }
+}
+
+.heart-filled {
+    position: relative;
+    background: url("./heart-filled.svg");
+    transform: scale(1.1);
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 250px;
 }

@@ -16,7 +16,7 @@ module.exports = {
             res.status(200).send(req.session.user);
         }
     },
-    login: async (req, res) => {
+    login: (req, res) => {
         const  { email, password } = req.body;
         const db = req.app.get("db");
         db.find_user_by_email(email).then(([foundUser]) => {
@@ -39,11 +39,17 @@ module.exports = {
         })
     },
     logout: (req, res) => {
-        const {username} = req.session.user
         req.session.destroy();
-        res.status(200).send(`${username} has logged out! Have a great day!`)
+        res.sendStatus(200);
     },
     userSession: (req, res) => {
         res.status(200).send(req.session.user)
+    },
+    updateEmail: async (req, res) => {
+        const { email } = req.body;
+        const { user_id } = req.session.user;
+        const db = req.app.get("db");
+        const updatedEmail = await db.update_email([email, user_id])
+        res.status(200).send(updatedEmail)
     }
 }

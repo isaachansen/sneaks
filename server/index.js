@@ -11,7 +11,8 @@ const {
   register,
   login,
   logout,
-  userSession
+  userSession,
+  updateEmail
 } = require("./controller/userController");
 
 const {
@@ -51,6 +52,7 @@ app.post("/auth/register", register);
 app.post("/auth/login", login);
 app.get("/auth/user_session", userSession);
 app.delete("/auth/logout", logout);
+app.put("/auth/update_email", updateEmail)
 
 app.get("/api/inventory", getInventory);
 app.get("/api/inventory/:id", getSingleItem);
@@ -64,7 +66,7 @@ app.get("/api/other", getOtherItem);
 
 app.get("/api/cart/:id", getCart);
 app.post("/api/add_to_cart", addToCart);
-app.delete("/api/cart/:id", deleteFromCart);
+app.delete("/api/cart/:cart_id", deleteFromCart);
 
 const path = require("path");
 app.get("*", (req, res) => {

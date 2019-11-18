@@ -36,8 +36,8 @@ class Header extends React.Component {
               <NavLink to="/store">STORE</NavLink>
               <NavLink to="/cart">CART</NavLink>
               <NavLink to="/contact">CONTACT</NavLink>
-              <NavLink to="/profile">
-                PROFILE
+              <NavLink className="user-profile" to="/profile">
+              {this.props.user.username}
                 {/* <FaUserAlt  className="profile"/> */}
               </NavLink>
               <NavLink onClick={() => this.logout()} to="/store">

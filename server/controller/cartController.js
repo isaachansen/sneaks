@@ -12,9 +12,12 @@ module.exports = {
             res.status(200).send(results)
     },
     deleteFromCart: async (req, res) => {
-        const {cart_id} = req.body
+        const {cart_id} = req.params
+        console.log(req.session.user)
+        const { user_id } = req.session.user
         const db = req.app.get("db");
-        const results = await db.delete_from_cart([cart_id])
+        const results = await db.delete_from_cart([cart_id, user_id])
+        console.log("these are the results: ", results)
             res.status(200).send(results)
 
     }

@@ -4,7 +4,7 @@ import logo from "./sneaks.png";
 import { connect } from "react-redux";
 import { setUser, logOutUser } from "../../ducks/reducer";
 import { NavLink } from "react-router-dom";
-import { FaAngleDown } from "react-icons/fa";
+// import { FaAngleDown } from "react-icons/fa";
 import axios from "axios";
 
 class Header2 extends React.Component {
@@ -47,7 +47,7 @@ class Header2 extends React.Component {
               </NavLink>
               <NavLink className="user-profile" to="/profile">
                 {this.props.user.username}
-                <FaAngleDown className="arrow-down" />
+                {/* <FaAngleDown className="arrow-down" /> */}
               </NavLink>
               <NavLink
                 onClick={() => this.logout()}
