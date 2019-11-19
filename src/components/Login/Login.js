@@ -29,7 +29,6 @@ class Login extends Component {
         password
       });
       this.props.history.push('/store')
-      console.log(loggedInUser);
       this.props.setUser(loggedInUser.data);
     }
   }
@@ -44,7 +43,7 @@ class Login extends Component {
           <div className="login-box">
             <div className="inner-login-box">
               <img className="login-logo" src={logo} alt="login-page" />
-
+              
               <div className="container username-box">
                 <div className="container__item">
                   <form className="form">

@@ -5,6 +5,8 @@ import "./Register.scss";
 import { connect } from "react-redux";
 import { setUser } from "../../ducks/reducer";
 import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
 class Register extends Component {
@@ -32,13 +34,18 @@ class Register extends Component {
         username,
         password
       });
-      this.props.history.push("/store");
+      this.props.history.push("/login");
       console.log(registeredUser);
-      this.props.setUser(registeredUser.data);
+      // this.props.setUser(registeredUser.data);
     }
   }
 
   render() {
+    toast.configure();
+    const notify = () =>
+      toast.success("Success! Please log in!", {
+        autoClose: 2000
+      });
     const { email, username, password } = this.state;
     return (
       <div className="absolute-background">
@@ -103,7 +110,10 @@ class Register extends Component {
               </div>
 
               <div className="register-btn">
-                <button onClick={e => this.register(e)}>REGISTER</button>
+                <button onClick={e => {
+                  this.register(e)
+                  notify();
+                }}>REGISTER</button>
               </div>
 
               <div className="register-text">

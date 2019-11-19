@@ -122,7 +122,7 @@ class Store extends Component {
     const { inventory } = this.state;
     const mappedInventory = inventory.map(shoe => {
       return (
-        <div className="item-container" key={shoe.shoe_id}>
+        <div className={this.props.user ? "log-item-container" : "guest-item-container"} key={shoe.shoe_id}>
           <div className="image-container">
             {/* <TiHeartOutline className="heart"/> */}
             <div
@@ -134,9 +134,10 @@ class Store extends Component {
           <h2 className="brand ">{shoe.shoe_brand}</h2>
           <h3 className="name">{shoe.shoe_name}</h3>
           <h2 className="price">${shoe.price}</h2>
+        
           <button
             name={shoe.shoe_id}
-            className="cart-btn"
+            className={this.props.user ? "cart-btn" : "no-btn"}
             onClick={e => {
               notify();
               this.buttonAddToCart(
@@ -150,7 +151,7 @@ class Store extends Component {
         </div>
       );
     });
-    console.log(this.state.inventory);
+    
     return (
       <div className="store-background">
         <Header2 />

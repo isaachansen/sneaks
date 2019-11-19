@@ -1,0 +1,39 @@
+.update-input {
+    padding: 15px;
+    width: 400px;
+    border: 2px solid black;
+    margin-top: 200px;
+    outline: none;
+    font-family: acumin-pro, sans-serif;
+    font-size: 16px;
+    font-style: normal; 
+    font-variant: normal;
+    font-weight: 600;
+    line-height: 22px;
+}
+
+.update-button {
+    padding: 8px 20px;
+    border: 2px solid black;
+    margin-top: 20px;
+    margin-left: 20px;
+    height: 55.5px;
+
+    outline: none;
+    font-family: futura-pt;
+    font-size: 20px;
+    font-style: normal; 
+    font-variant: normal;
+    font-weight: 700;
+    cursor: pointer;
+
+    &:hover {
+        background: black;
+        color: white;
+    }
+}
+
+.update-form {
+    display: inline-flex;
+    flex-direction: row;
+}

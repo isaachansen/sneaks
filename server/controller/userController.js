@@ -13,7 +13,7 @@ module.exports = {
             const hashedPassword = await bcrypt.hash(password, salt)
             const [newUser] = await db.create_user([email, username, hashedPassword])
             req.session.user = newUser;
-            res.status(200).send(req.session.user);
+            res.sendStatus(200);
         }
     },
     login: (req, res) => {

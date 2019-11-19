@@ -8,6 +8,22 @@ import { FaBars } from "react-icons/fa";
 import axios from "axios";
 
 class Header extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      toggle: false
+    }
+    this.logout = this.logout.bind(this);
+  }
+
+  toggler() {
+    this.setState(prevState => {
+      return {
+        toggle: !prevState.toggle
+      };
+    });
+  }
+
   logout() {
     axios.delete("/auth/logout").then(res => {
       this.props.logOutUser();

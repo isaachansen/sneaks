@@ -16,17 +16,20 @@ class Profile extends React.Component {
             <div className="profile-picture"></div>
           </div>
           <div className="username-text">
-            {this.props.user.username}
+            Username: {this.props.user.username}
           </div>
-          <NavLink to="/wishlist">
+          <div className="email-text">
+            Email: {this.props.user.email}
+          </div>
+          {/* <NavLink to="/wishlist">
             <button className="profile-btn wishlist-btn">WISHLIST</button>
-          </NavLink>
+          </NavLink> */}
           <NavLink to="/update-email">
             <button className="profile-btn update-email-btn">UPDATE EMAIL</button>
           </NavLink>
-          <NavLink to="/update-password">
+          {/* <NavLink to="/update-password">
             <button className="profile-btn update-password-btn">UPDATE PASSWORD</button>
-          </NavLink>
+          </NavLink> */}
         </div>
       </div>
     );

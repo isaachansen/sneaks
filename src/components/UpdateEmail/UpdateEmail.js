@@ -3,6 +3,7 @@ import Header2 from "../Header2/Header2";
 import axios from "axios";
 import { connect } from "react-redux";
 import { setUser } from "../../ducks/reducer";
+import "./UpdateEmail.scss";
 
 class UpdateEmail extends Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class UpdateEmail extends Component {
 
   async submitHandler() {
     const { email } = this.state;
-    await axios.put("/auth/update_email", email);
+    await axios.put("/auth/update_email", { email });
     console.log("hello");
   }
 
@@ -30,16 +31,22 @@ class UpdateEmail extends Component {
       <div>
         <Header2 />
         <form>
-          <div>
+          <div className="update-form">
             <input
+              className="update-input"
               onChange={this.changeHandler}
               placeholder="New Email"
             ></input>
           </div>
-          <button onClick={(e) => {
-            e.preventDefault()
-            this.submitHandler(this.state.email);
-            }}>UPDATE EMAIL</button>
+          <button
+            className="update-button"
+            onClick={e => {
+              e.preventDefault();
+              this.submitHandler(this.state.email);
+            }}
+          >
+            UPDATE EMAIL
+          </button>
         </form>
       </div>
     );
