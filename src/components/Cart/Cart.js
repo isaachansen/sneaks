@@ -6,9 +6,7 @@ import { getCart } from "../../ducks/reducer";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import StripeCheckout from "react-stripe-checkout";
-
 import "./Cart.scss";
-
 
 class Cart extends Component {
   constructor(props) {
@@ -30,55 +28,52 @@ class Cart extends Component {
     }, 2000);
   }
 
-
   getCustomerCart = async () => {
     const cart = await axios.get(`/api/cart/${this.props.user.user_id}`);
     this.setState({
       cart: cart.data
     });
-    const addNumbers = this.state.cart.map(item => {
-      return item.price
-    }).reduce((acc, currentValue) => {
-      return (acc += currentValue);
-    }, 0);
+    const addNumbers = this.state.cart
+      .map(item => {
+        return item.price;
+      })
+      .reduce((acc, currentValue) => {
+        return (acc += currentValue);
+      }, 0);
     this.setState({
       totalPrice: addNumbers
-    })
+    });
   };
 
-
-  deleteFromCart = async(cart_id) => {
-   const cart = await axios.delete(`/api/cart/${cart_id}`)
+  deleteFromCart = async cart_id => {
+    const cart = await axios.delete(`/api/cart/${cart_id}`);
     this.setState({
       cart: cart.data
-    })
-    const addNumbers = this.state.cart.map(item => {
-      return item.price
-    }).reduce((acc, currentValue) => {
-      return (acc += currentValue);
-    }, 0);
+    });
+    const addNumbers = this.state.cart
+      .map(item => {
+        return item.price;
+      })
+      .reduce((acc, currentValue) => {
+        return (acc += currentValue);
+      }, 0);
     this.setState({
       totalPrice: addNumbers
-    })
+    });
+  };
 
-  }
-
-  deleteAllCart = async(user_id) => {
-    const cart = await axios.delete(`/api/cart/delete_cart`)
+  deleteAllCart = async () => {
+    const cart = await axios.delete(`/api/delete_cart`);
     this.setState({
       cart: cart.data
-    })
-  }
+    });
+    this.props.history.push('/store');
+  };
 
-  async handleToken(token, addresses) {
-    const response = await axios.post(
-      "/auth/checkout",
-      { token }
-    );
+  async handleToken(token, shoe) {
+    const response = await axios.post("/auth/checkout", { token, shoe });
     console.log("Response:", response.data);
   }
-
-
 
   render() {
     const { totalPrice } = this.state;
@@ -93,48 +88,54 @@ class Cart extends Component {
           <div className="cart-image-container">
             <img className="cart-image" src={shoe.image} alt="shoes" />
           </div>
-          <h2 className="cart-brand ">{shoe.shoe_brand}</h2>
-          <h3 className="cart-name">{shoe.shoe_name}</h3>
-          <h2 className="cart-price">${shoe.price}</h2>
-          <div>
-              <button className="item-btn" onClick={() => {
-                notify();
-                this.deleteFromCart(shoe.cart_id)
-              }}>X</button>
+          <div className="item-info">
+            <h2 className="cart-brand ">{shoe.shoe_brand}</h2>
+            <h3 className="cart-name">{shoe.shoe_name}</h3>
+            <h2 className="cart-price">${shoe.price}</h2>
+            <div>
+              <button
+                className="item-btn"
+                onClick={() => {
+                  notify();
+                  this.deleteFromCart(shoe.cart_id);
+                }}
+              >
+                X
+              </button>
+            </div>
           </div>
         </div>
       );
     });
 
     return (
-
       <div className="absolute-cart">
         <Header2 />
         {totalPrice === 0 ? (
           <div className="cart-is-empty">CART IS EMPTY</div>
         ) : (
-        <div className="background-cart">
-          <div className="cart-text-box">
-            <div className="cart-text"></div>
-          </div>
-          <div className="cart-box-background">
-            <div className="cart-box">{mappedCart}</div>
-          </div>
+          <div className="background-cart">
+            <div className="cart-text-box">
+              <div className="cart-text"></div>
+            </div>
+            <div className="cart-box-background">
+              <div className="cart-box">{mappedCart}</div>
+            </div>
             <div className="cart-info">
-              <StripeCheckout 
-              stripeKey="pk_test_0Tq8vbXjxqTXMw2SpLjTizYI00ro0ak9v1"
-              token={this.handleToken}
-              billingAddress
-              shippingAddress
-              amount={this.state.totalPrice * 100}
-              closed={this.deleteAllCart}
+              <StripeCheckout
+                stripeKey="pk_test_0Tq8vbXjxqTXMw2SpLjTizYI00ro0ak9v1"
+                token={this.handleToken}
+                billingAddress
+                shippingAddress
+                amount={this.state.totalPrice * 100}
+                closed={this.deleteAllCart}
               />
               <h2 className="total-price">Total: ${this.state.totalPrice}</h2>
             </div>
-        </div>
+          </div>
         )}
       </div>
-    ); 
+    );
   }
 }
 

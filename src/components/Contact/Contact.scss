@@ -1,16 +1,21 @@
 .div-form {
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 90vh;
+    background: url(./contact-background.jpg);
+    background-size: cover;
 }
 
 .contact-form {
     width: 800px;
-    height: 550px;
+    height: 620px;
     padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-radius: 10px;
+    background-color: #333;
+    border: 5px solid rgb(216, 216, 216);
 }
 
 
@@ -20,10 +25,11 @@
     font-style: normal; 
     font-variant: normal;
     font-weight: 800;
-    line-height: 22px;
-    margin-top: 20px;
+    margin-bottom: 20px;
     margin-left: 10px;
     text-align: left;
+    color: white;
+    // display: none;
 }
 
 .contact-input {

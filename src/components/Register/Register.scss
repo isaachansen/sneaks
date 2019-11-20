@@ -58,10 +58,12 @@ a {
 
 .background-register {
     width: 100vw;
-    height: 80vh;
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: url(./login-background.jpg);
+    background-size: cover;
     
 }
 
@@ -73,7 +75,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 5px solid black;
+    border: 5px solid rgb(216, 216, 216);
     border-radius: 10px;
 }
 

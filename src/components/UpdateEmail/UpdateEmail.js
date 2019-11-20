@@ -4,6 +4,8 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { setUser } from "../../ducks/reducer";
 import "./UpdateEmail.scss";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 class UpdateEmail extends Component {
   constructor(props) {
@@ -23,16 +25,23 @@ class UpdateEmail extends Component {
   async submitHandler() {
     const { email } = this.state;
     await axios.put("/auth/update_email", { email });
-    console.log("hello");
+    this.props.history.push("/profile")
   }
 
   render() {
+    toast.configure();
+    const notify = () =>
+      toast.success("Email Updated! Use it next time you log in!", {
+        autoClose: 2000
+      });
+    
     return (
       <div>
         <Header2 />
         <form>
           <div className="update-form">
             <input
+              type="email"
               className="update-input"
               onChange={this.changeHandler}
               placeholder="New Email"
@@ -43,6 +52,7 @@ class UpdateEmail extends Component {
             onClick={e => {
               e.preventDefault();
               this.submitHandler(this.state.email);
+              notify();
             }}
           >
             UPDATE EMAIL

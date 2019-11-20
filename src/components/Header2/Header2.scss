@@ -58,3 +58,98 @@
   top: 3px;
 }
 
+
+@media (max-width: 1025px) {
+  
+  header nav {
+    width: 100%;
+    background: white;
+    position: fixed;
+    top: 90px;
+    left: 0;
+    right: 0;
+    transition: .3s;
+    
+    overflow: hidden;
+    height: 0px;
+  }
+
+  .menu {
+    display: flex;
+  }
+
+  header nav > NavLink {
+    height: 300px;
+    min-width: 100vw;
+    flex-direction: column;
+    padding: 15px;
+
+  }
+  header a {
+    color: white;
+  }
+  
+  .show {
+    height: 300px;
+  }
+
+  .logo {
+    margin-right: 250px;
+  }
+}
+
+@media(max-width: 415px) {
+  header nav {
+    width: 100%;
+    background: white;
+    position: fixed;
+    top: 90px;
+    left: 0;
+    right: 0;
+    transition: .3s;
+    
+    overflow: hidden;
+    height: 0px;
+  }
+
+  .logo {
+    margin-left: 50px;
+  }
+
+  .menu {
+    margin-right: 100px;
+  }
+
+  .active {
+    width: 400px;
+    
+  }
+}
+
+@media(max-width: 340px) {
+  header nav {
+    width: 100%;
+    background: white;
+    position: fixed;
+    top: 90px;
+    left: 0;
+    right: 0;
+    transition: .3s;
+    
+    overflow: hidden;
+    height: 0px;
+  }
+
+  .logo {
+    margin-left: 50px;
+  }
+
+  .menu {
+    margin-right: 150px;
+  }
+
+  .active {
+    width: 400px;
+    
+  }
+}

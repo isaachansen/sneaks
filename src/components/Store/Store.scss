@@ -206,3 +206,22 @@
 .no-btn {
     display: none;
 }
+
+@media(max-width: 1025px) {
+    .items {
+        height: 91.8vh;
+    }
+
+}
+
+@media(max-width: 415px) {
+
+    
+    .filter-box {
+        display: none;
+    }
+
+    .store-filter {
+        display: none;
+    }
+}

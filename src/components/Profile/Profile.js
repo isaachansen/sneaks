@@ -18,9 +18,9 @@ class Profile extends React.Component {
           <div className="username-text">
             Username: {this.props.user.username}
           </div>
-          <div className="email-text">
+          {/* <div className="email-text">
             Email: {this.props.user.email}
-          </div>
+          </div> */}
           {/* <NavLink to="/wishlist">
             <button className="profile-btn wishlist-btn">WISHLIST</button>
           </NavLink> */}

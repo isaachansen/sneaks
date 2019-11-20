@@ -75,7 +75,7 @@ app.get("/api/other", getOtherItem);
 app.get("/api/cart/:id", getCart);
 app.post("/api/add_to_cart", addToCart);
 app.delete("/api/cart/:cart_id", deleteFromCart);
-app.delete("/api/cart/delete_cart", deleteAllCart);
+app.delete("/api/delete_cart", deleteAllCart);
 
 const path = require("path");
 app.get("*", (req, res) => {
@@ -134,7 +134,7 @@ app.post("/auth/checkout", async (req, res) => {
   let error;
   let status;
   try {
-    const { product, token } = req.body;
+    const { shoe, token } = req.body;
 
     const customer = await stripe.customers.create({
       email: token.email,
@@ -144,11 +144,11 @@ app.post("/auth/checkout", async (req, res) => {
     const idempotency_key = uuid();
     const charge = await stripe.charges.create(
       {
-        amount: product.price * 100,
+        amount: shoe.price * 100,
         currency: "usd",
         customer: customer.id,
         receipt_email: token.email,
-        description: `Purchased the ${product.name}`,
+        description: `Purchased the ${shoe.name}`,
         shipping: {
           name: token.card.name,
           address: {

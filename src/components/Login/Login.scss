@@ -14,6 +14,7 @@ body,
   height: 100%;
 }
 
+
 a {
   color: inherit;
 
@@ -51,10 +52,12 @@ a {
 
 .background-login {
   width: 100vw;
-  height: 80vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: url(./login-background.jpg);
+  background-size: cover;
 }
 
 .login-box {
@@ -65,7 +68,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 5px solid black;
+  border: 5px solid rgb(216, 216, 216);
   box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 }

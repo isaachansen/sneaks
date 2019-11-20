@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Header2 from "../Header2/Header2";
 import "./Contact.scss";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
 export default class Contact extends Component {
@@ -36,13 +38,19 @@ export default class Contact extends Component {
 
   render() {
     const {name, email, message} = this.state;
+    toast.configure();
+    const notify = () =>
+      toast.success("Message sent!", {
+        autoClose: 2000
+      });
+
     return (
       <div>
         <Header2 />
         <div className="div-form">
           <div>
-            <div className="contact-title">CONTACT US</div>
             <form className="contact-form">
+            <div className="contact-title">CONTACT US</div>
               <div className="contact-input">
                 <input className="person-input" type="text" name="name" placeholder="Name" onChange={this.handleChange}/>
               </div>
@@ -63,6 +71,7 @@ export default class Contact extends Component {
                   e.preventDefault()
                   this.handleSubmit(name, email, message)
                   this.props.history.push('/')
+                  notify();
                 }}>SUBMIT</button>
               </div>
             </form>
