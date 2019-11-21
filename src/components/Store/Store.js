@@ -124,11 +124,10 @@ class Store extends Component {
       return (
         <div className={this.props.user ? "log-item-container" : "guest-item-container"} key={shoe.shoe_id}>
           <div className="image-container">
-            {/* <TiHeartOutline className="heart"/> */}
-            <div
+            {/* <div
               onClick={() => this.toggler}
               className={this.state.toggle ? "heart-filled" : "heart"}
-            ></div>
+            ></div> */}
             <img className="image" src={shoe.image} alt="shoes" />
           </div>
           <h2 className="brand ">{shoe.shoe_brand}</h2>

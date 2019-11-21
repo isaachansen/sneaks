@@ -4,10 +4,28 @@ import logo from "./sneaks.png";
 import { connect } from "react-redux";
 import { setUser, logOutUser } from "../../ducks/reducer";
 import { NavLink } from "react-router-dom";
-// import { FaAngleDown } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 import axios from "axios";
 
+
 class Header2 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      toggle: false
+    };
+    this.toggler = this.toggler.bind(this);
+    this.logout = this.logout.bind(this);
+  }
+
+  toggler() {
+    this.setState(prevState => {
+      return {
+        toggle: !prevState.toggle
+      };
+    });
+  }
+
   logout() {
     axios.delete("/auth/logout").then(res => {
       this.props.logOutUser();
@@ -16,14 +34,17 @@ class Header2 extends React.Component {
 
   render() {
     return (
-      <div className="header2">
+      <header className="header2">
         <div className="head2">
           <NavLink to="/">
             <img className="logo2" src={logo} alt="logo"></img>
           </NavLink>
+          <button onClick={this.toggler} className="menu2">
+            <FaBars className="menu-icon2" />
+          </button>
 
           {!this.props.user ? (
-            <nav>
+            <nav className={this.state.toggle ? "show2" : ""}>
               <NavLink activeClassName="active" to="/store">
                 STORE
               </NavLink>
@@ -35,7 +56,7 @@ class Header2 extends React.Component {
               </NavLink>
             </nav>
           ) : (
-            <nav>
+            <nav className={this.state.toggle ? "show2" : ""}>
               <NavLink activeClassName="active" to="/store">
                 STORE
               </NavLink>
@@ -47,7 +68,6 @@ class Header2 extends React.Component {
               </NavLink>
               <NavLink className="user-profile" to="/profile">
                 {this.props.user.username}
-                {/* <FaAngleDown className="arrow-down" /> */}
               </NavLink>
               <NavLink
                 onClick={() => this.logout()}
@@ -59,7 +79,7 @@ class Header2 extends React.Component {
             </nav>
           )}
         </div>
-      </div>
+      </header>
     );
   }
 }

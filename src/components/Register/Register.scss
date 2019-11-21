@@ -113,3 +113,50 @@ a {
     font: 1rem "PT Sans", sans-serif;
     font-size: 20px;
 }
+
+@media(max-width: 1025px) {
+    .background-register {
+        height: 93vh;
+    }
+}
+
+
+@media(max-width: 415px) {
+    .register-box {
+        width: 400px;
+    }
+}
+
+@media(max-width: 380px) {
+    .register-box {
+        width: 350px;
+    }
+    .form {
+        &__field {
+          width: 320px;
+        }
+      }
+}
+
+@media(max-width: 325px) {
+
+    .register-logo {
+        display: none;
+    }
+
+    .register-box { 
+        width: 300px;
+        height: 400px;
+      }
+    
+      .form {
+        &__field {
+          width: 275px;
+
+        }
+      }
+
+      .register-text {
+          font-size: 15px;
+      }
+}

@@ -24,6 +24,11 @@ export default class Contact extends Component {
   }
   
   async handleSubmit(e) {
+    toast.configure();
+    const notify = () =>
+      toast.success("Message sent!", {
+        autoClose: 2000
+      });
     const {name, email, message} = this.state;
     if(name === "" || email === "" || message === "") {
       alert("CAN'T LEAVE FORM BLANK")
@@ -33,22 +38,18 @@ export default class Contact extends Component {
         email,
         message
       })
+      notify();
     }
   }
 
   render() {
     const {name, email, message} = this.state;
-    toast.configure();
-    const notify = () =>
-      toast.success("Message sent!", {
-        autoClose: 2000
-      });
 
     return (
       <div>
         <Header2 />
         <div className="div-form">
-          <div>
+          <div className="outer-form">
             <form className="contact-form">
             <div className="contact-title">CONTACT US</div>
               <div className="contact-input">
@@ -71,7 +72,6 @@ export default class Contact extends Component {
                   e.preventDefault()
                   this.handleSubmit(name, email, message)
                   this.props.history.push('/')
-                  notify();
                 }}>SUBMIT</button>
               </div>
             </form>

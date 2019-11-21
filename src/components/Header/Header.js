@@ -14,6 +14,7 @@ class Header extends React.Component {
       toggle: false
     }
     this.logout = this.logout.bind(this);
+    this.toggler = this.toggler.bind(this);
   }
 
   toggler() {
@@ -32,29 +33,28 @@ class Header extends React.Component {
 
   render() {
     return (
-      <div className="header">
+      <header className="header">
         <div className="head">
           <NavLink to="/">
             <img className="logo" src={logo} alt="logo"></img>
           </NavLink>
-          <button className="menu">
+          <button onClick={this.toggler}  className="menu">
             <FaBars className="menu-icon" />
           </button>
 
           {!this.props.user ? (
-            <nav>
-              <NavLink to="/store">STORE</NavLink>
-              <NavLink to="/contact">CONTACT</NavLink>
-              <NavLink to="/login">LOGIN</NavLink>
+            <nav className={this.state.toggle ? "show" : ""}>
+              <NavLink className="navlink" to="/store">STORE</NavLink>
+              <NavLink className="navlink" to="/contact">CONTACT</NavLink>
+              <NavLink className="navlink" to="/login">LOGIN</NavLink>
             </nav>
           ) : (
-            <nav>
-              <NavLink to="/store">STORE</NavLink>
-              <NavLink to="/cart">CART</NavLink>
-              <NavLink to="/contact">CONTACT</NavLink>
-              <NavLink className="user-profile" to="/profile">
+            <nav className={this.state.toggle ? "show" : ""}>
+              <NavLink className="navlink" to="/store">STORE</NavLink>
+              <NavLink className="navlink" to="/cart">CART</NavLink>
+              <NavLink className="navlink" to="/contact">CONTACT</NavLink>
+              <NavLink className="user-profile navlink" to="/profile">
               {this.props.user.username}
-                {/* <FaUserAlt  className="profile"/> */}
               </NavLink>
               <NavLink onClick={() => this.logout()} to="/store">
                 LOGOUT
@@ -62,7 +62,7 @@ class Header extends React.Component {
             </nav>
           )}
         </div>
-      </div>
+      </header>
     );
   }
 }

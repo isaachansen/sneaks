@@ -50,7 +50,10 @@
     outline: none;
     border: none;
     display: none;
-    cursor: pointer;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
   
   .menu-icon {
@@ -68,7 +71,6 @@
   
     header nav {
       width: 100%;
-      background: white;
       position: fixed;
       top: 90px;
       left: 0;
@@ -77,25 +79,28 @@
       
       overflow: hidden;
       height: 0px;
+
     }
   
     .menu {
       display: flex;
     }
   
-    header nav > NavLink {
+    header nav > ul {
       height: 300px;
       min-width: 100vw;
       flex-direction: column;
       padding: 15px;
   
     }
-    header a {
-      color: white;
-    }
     
     .show {
-      height: 300px;
+      height: 350px;
+      display: flex;
+      flex-direction: column;
+      background-color: black;
+      justify-content: center;
+      align-items: center;
     }
 
     .logo {
@@ -104,21 +109,11 @@
   }
 
   @media(max-width: 415px) {
-    header nav {
-      width: 100%;
-      background: white;
-      position: fixed;
-      top: 90px;
-      left: 0;
-      right: 0;
-      transition: .3s;
-      
-      overflow: hidden;
-      height: 0px;
-    }
 
     .logo {
       margin-left: 50px;
+      position: relative;
+      left: 10px;
     }
 
     .menu {
@@ -134,7 +129,6 @@
   @media(max-width: 340px) {
     header nav {
       width: 100%;
-      background: white;
       position: fixed;
       top: 90px;
       left: 0;
@@ -155,6 +149,20 @@
 
     .active {
       width: 400px;
+      
+    }
+  }
+
+  @media(max-width: 321px) {
+    .logo{
+      position: relative;
+      left: 70px;
+      width: 200px;
+      height: auto;
+    }
+
+    .active {
+      width: 200px;
       
     }
   }

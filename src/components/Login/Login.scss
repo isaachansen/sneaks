@@ -104,3 +104,49 @@ a {
   font: 1rem "PT Sans", sans-serif;
   font-size: 20px;
 }
+
+@media(max-width: 1025px) {
+  .background-login {
+    height: 93vh;
+  }
+}
+
+
+@media(max-width: 415px) {
+  .login-box {
+    width: 400px;
+  }
+}
+
+@media(max-width: 380px) {
+  .login-box {
+    width: 350px;
+  }
+
+  .form {
+    &__field {
+      width: 320px;
+    }
+  }
+}
+
+@media(max-width: 325px) {
+  .login-logo {
+    display: none;
+  }
+
+  .login-box { 
+    width: 300px;
+    height: 350px;
+  }
+
+  .form {
+    &__field {
+      width: 275px;
+    }
+  }
+
+  .register-text {
+    font-size: 15px;
+  }
+}
